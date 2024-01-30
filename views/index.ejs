@@ -1,0 +1,29 @@
+<!-- views/index.ejs (client-side) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day Type Message</title>
+</head>
+
+<body>
+  <h1>Day Type Message</h1>
+  <p id="message"></p>
+
+  <script>
+    // Client-side logic for rendering the message based on dayType
+    var dayType =dayType;
+  
+    const messageElement = document.getElementById('message');
+    if (dayType === 0 || dayType === 6) {
+      messageElement.innerText = "Yay, it's a weekend! Let's be savages!";
+    } else {
+      messageElement.innerText = "Yay, it's a weekday! Let's be savages!";
+    }
+  </script>
+  
+</body>
+
+</html>
