@@ -1,5 +1,30 @@
 import express from "express";
-import path from "path";
+
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+  const today = new Date();
+  const day = today.getDay();
+
+  let type = "a weekday";
+  let adv = "lets be savages! ";
+
+  if (day === 0 || day === 6) {
+    type = "weekend";
+    adv = adv + "again!";
+  }
+  res.render("index.ejs", {
+    dayType: type,
+    advice: adv,
+  });
+});
+
+app.listen(port, () => {
+  console.log(`server running port on port${port}.`);
+});
+
+/* import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   const dayType = getDay();
-  res.render('index', { dayType });
+  res.render('index.ejs', { dayType });
 });
 
 app.listen(port, () => {
@@ -26,4 +51,4 @@ app.listen(port, () => {
 function getDay() {
   const currentDate = new Date();
   return currentDate.getDay();
-}
+} */
